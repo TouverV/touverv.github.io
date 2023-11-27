@@ -1,0 +1,670 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: .5s ease-in-out;
+}
+
+:root {
+  --clr-bg: radial-gradient(at left top, rgb(185, 206, 255), rgb(211, 152, 255), rgb(185, 206, 255));
+  --clr-dark: #222;
+  --clr-soft-dark: #333;
+  --clr-grey: #444;
+  --clr-light: #fff;
+  --clr-soft-light: #eee;
+  --clr-light-grey: #aaa;
+  --sizeindex: calc(100vw + 100vh);
+}
+
+.dark-mode{
+  --clr-bg: radial-gradient(at left top, rgb(15, 23, 42), rgb(88, 28, 135), rgb(15, 23, 42));
+  --clr-dark: #fff;
+  --clr-soft-dark: #eee;
+  --clr-grey: #444;
+  --clr-light: #222;
+  --clr-soft-light: #333;
+  --clr-light-grey: #aaa;
+}
+
+@font-face {
+  font-family: 'Bebas Neue', sans-serif;
+  src: url('/fonts/BebasNeue-Bold.ttf') format('ttf');
+}
+
+body, html {
+  width: 100vw;
+  font-family: 'Bebas Neue', sans-serif;
+  overflow-x: hidden;
+  background: linear-gradient(90deg, #090515 0%, #120A21 50.52%, #090515 100%), #0A0315;
+  background-image: url('../images/GradientsBG.png'), url('../images/GradientsBG2.png');
+  background-repeat: no-repeat, no-repeat;
+  background-size: contain, contain;
+  background-position-y: top, bottom;
+}
+
+.container {
+  margin: 0px 100px;
+}
+
+/* Шапка */
+
+.header-nav{
+  padding-top: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo{
+  white-space: nowrap;
+  color: #fff;
+  font-size: 65px;
+  font-weight: 700;
+  cursor: default;
+}
+
+.nav-center{
+  display: flex;
+  width: 25%;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.nav-item {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+
+.nav-item:hover {
+  color: rgba(255, 255, 255, 1);
+}
+
+/* Выпадающее меню */
+
+.user-menu {
+  position: absolute;
+  top: 78px;
+  /* right: 10px; */
+  width: 100%;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(5px);
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.user-menu ul {
+  list-style: none;
+}
+
+.user-menu a {
+  font-size: 30px;
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: #333;
+}
+
+.user-menu a:hover {
+  background: rgba(255, 255, 255, 1);
+  border-radius: 15px;
+}
+
+.user-menu.hidden {
+  display: none;
+}
+
+/* Конец выпадающего меню */
+
+/* Конец шапки */
+
+
+.main{
+  color: #fff;
+}
+
+.main-page{
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  padding-top: 100px;
+  align-items: center;
+}
+
+.main-text{
+  white-space: nowrap;
+  font-size: 14vw;
+  font-weight: 700;
+  letter-spacing: 5px;
+}
+
+.main-subtitle{
+  white-space: nowrap;
+  color: #FFF;
+  font-size: 4vw;
+  font-weight: 400;
+}
+
+.main-button{
+  width: 400px;
+  font-size: 50px;
+  margin-top: 50px;
+  color: #080822;
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0px 4px 10px 2px rgba(0, 0, 0, 0.25);
+  font-weight: 400;
+  letter-spacing: 2px;
+}
+
+
+/* Футер */
+
+.footer-nav{
+  padding-top: 150px;
+  padding-bottom: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: default;
+}
+
+.ft {
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+
+.ft.first{
+  padding-bottom: 5px;
+  gap: 35px;
+}
+
+.ft.first b{
+  white-space: nowrap;
+  color: #fff;
+  font-size: 65px;
+  font-weight: 700;
+  cursor: default;
+}
+
+.ft:not(.ft.first){
+  align-items:center;
+  line-height: 40px;
+}
+
+.ft p:not(.ft.first p){
+  padding-bottom: 20px;
+  font-size: 35px;
+}
+
+.ft a{
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+}
+
+.ft a:hover{
+  color: rgba(255, 255, 255, 1);
+  text-decoration: none;
+}
+
+/* Конец Футера */
+
+/* Статистика */
+
+.stat{
+  margin-top: 250px;
+  display: flex;
+  justify-content: space-between;
+  height: 500px;
+  padding: 75px;
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  align-content: center;
+}
+
+.stat-numbers{
+  width: 50%;
+}
+
+.stat-text{
+  font-size: 30px;
+  white-space: nowrap;
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+
+.stat-users{
+  font-size: 300px;
+  }
+
+.stat-info p{
+  width: 100%;
+  padding: 0;
+  align-self: center;
+  padding-top: 3%;
+  font-size: 30px;
+  white-space: wrap;
+  font-weight: 300;
+  letter-spacing: 1px;
+  text-align: justify;
+}
+
+.stat-info{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stat-nav{
+  width: 100%;
+  align-self: center;
+  padding: 10px;
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  /* border: 1px s  /* box-shadow: 0 0px 35px rgba(0,0,0,0.2);olid rgba(255, 255, 255, 0.05); */
+  display: flex;
+  height: 80px;
+  justify-content: space-between;
+}
+
+.statbtn{
+  width: 30%;
+  border-radius: 40px;
+  border-left-width: 40px;
+  border-right-width: 40px;
+  padding: 0px;
+  margin: 0px;
+  font-size: 35px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.20);
+  color: #fff;
+  font-weight: 300;
+}
+
+.statbtn:hover,
+.statbtn.active,
+.statbtn.moto.active,
+.statbtn.car.active,
+.statbtn.truck.active {
+  background: rgba(255, 255, 255, 0.40);
+  box-shadow: 0px 4px 10px 2px rgba(0, 0, 0, 0.25);
+}
+
+
+/* Конец статистики */
+
+
+/* Начало css с кнопками */
+
+.btn-center {
+  margin: 10px;
+  background: #00000000;
+  box-shadow: none;
+  color: var(--clr-dark);
+}
+
+.btn-center.center {
+
+  margin: 10px;
+  background: #00000000;
+  box-shadow: none;
+  color: var(--clr-dark);
+}
+
+.btn-center:hover{
+  margin: 10px;
+  background: #00000000;
+  box-shadow: none;
+  color: #7573d4;
+}
+
+.nav-buttons {
+  position: relative;
+  margin: 0;
+  padding: 10px;
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 0px 35px rgba(0,0,0,0.2);
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  height: 80px;
+}
+
+.reg-button{
+  border-radius: 40px;
+  border-left-width: 40px;
+  border-right-width: 40px;
+  padding: 0px;
+  margin: 0px;
+  font-size: 35px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.8);
+  color: #080822;
+}
+
+.user-btn {
+  border-radius: 40px;
+  border-left-width: 40px;
+  border-right-width: 40px;
+  padding: 0px;
+  margin: 0px;
+  font-size: 35px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.8);
+  color: #080822;
+}
+
+.theme-button {
+  width: 100px;
+  background: rgba(255, 255, 255, 0.20);
+  backdrop-filter: blur(5px);
+  border-radius: 40px;
+  margin-right: 15px;
+  font-size: 35px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.theme-button:hover{
+  background: rgba(255, 255, 255, 0.4);;
+}
+
+button {
+  position: relative;
+  font-family: 'Bebas Neue', sans-serif;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 25px;
+  border-width: 15px;
+  border-color: #1c63f200;
+  box-shadow: 0px 4px 10px 2px rgba(0, 0, 0, 0.25);
+  color: #eee;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-size: 40px;
+  font-weight: 400;
+  font-style: normal;
+  flex-shrink: 0;
+}
+
+button:hover {
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0px 4px 10px 5px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+}
+
+/* button:active {
+  background: #0e63e2; 
+  box-shadow: 0px 4px 10px 5px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+} */
+
+/* Конец css с кнопками */
+
+
+/* Начало css с категориями */
+
+.category{
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  padding-top: 150px;
+  align-items: center;
+}
+
+.category-text{
+  white-space: nowrap;
+  font-size: 8vw;
+  font-weight: 700;
+  letter-spacing: 5px;
+  margin-bottom: 15vh;
+}
+
+.category-nav{
+  padding: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 0;
+  width: 100%;
+  flex-wrap: nowrap;
+  flex-direction: row;
+}
+
+.category-moto{
+  flex-shrink: 0;
+  background: url('../images/Scooter2.png');
+  background-repeat: no-repeat;
+  background-position: 50% 88%;
+  background-size: 125%;
+  width: 500px;
+  height: 300px;
+  padding: 0;
+  border-radius: 70px;
+  box-shadow: 0 15px 35px rgba(0,0,0,9);
+}
+
+.img-moto{
+  margin-top: -150px;
+  margin-left: -50px;
+  width: 600px;
+  height: 500px;
+  background: url('../images/Scooter.png');
+  background-repeat: no-repeat;
+  background-position: 50% 0%;
+  background-size: 105%;
+}
+
+.category-car{
+  flex-shrink: 0;
+  background: url('../images/Car2.png');
+  background-repeat: no-repeat;
+  background-position: 50% 70%;
+  background-size: 131%;
+  width: 500px;
+  height: 300px;
+  padding: 0;
+  border-radius: 70px;
+  box-shadow: 0 15px 35px rgba(0,0,0,9);
+}
+
+.img-car{
+  margin-top: -138px;
+  margin-left: -50px;
+  width: 600px;
+  height: 500px;
+  background: url('../images/Car.png');
+  background-repeat: no-repeat;
+  background-position: 50% 70%;
+  background-size: 110%;
+}
+
+.category-truck{
+  flex-shrink: 0;
+  background: url('../images/TruckFlip.png');
+  background-repeat: no-repeat;
+  background-position: 43% 60%;
+  background-size: 220%;
+  width: 500px;
+  height: 300px;
+  padding: 0;
+  border-radius: 70px;
+  box-shadow: 0 15px 35px rgba(0,0,0,9);
+}
+
+.img-truck{
+  margin-top: -138px;
+  margin-left: -50px;
+  width: 600px;
+  height: 500px;
+  background: url('../images/Truck2.png');
+  background-repeat: no-repeat;
+  background-position: 41% 55%;
+  background-size: 190%;
+}
+
+.btn {
+  left: 163px;
+  top: -150px;
+  flex-shrink: 0;
+  background: rgba(255, 255, 255, 0.20);
+  backdrop-filter: blur(10px);
+  width: 175px;
+  height: 175px;
+  padding: 0;
+  border-radius: 100px;
+  border: 1px solid rgba(255, 255, 255, 0.20);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+  color:  #fff;
+  font-size: 115px;
+}
+
+.btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color:  #aaa;
+} 
+
+.bnt:active {
+  background: rgba(255, 255, 255, 0.20);
+  color:  #fff;
+}
+
+/* Конец css с категориями */
+
+/* Адаптация под экран */
+
+@media (max-width: 1750px) {
+  .category{
+    height: auto;
+  }
+  .category-nav{
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+  .category-moto,.category-car,.category-truck{
+    margin-top: 225px;
+  }
+  .category-text{
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 1600px) {
+  .stat{
+    height: auto;
+    flex-wrap: nowrap;
+    flex-direction: column;
+  }
+  .stat-numbers {
+    width: 100%;
+  }
+  .stat-info{
+    width: 100%;
+  }
+}
+
+@media (max-width: 1400px){
+  .footer-nav{
+    flex-direction: column;
+  }
+  .ft{
+    align-items: center;
+  }
+  .ft:not(.ft.first) {
+    padding-top: 50px;
+  }
+}
+
+@media (max-width: 1300px){
+  .nav-center{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-item:not(:last-child) {
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 1100px){
+  .logo{
+    margin-right: 0;
+  }
+  .main-button{
+    width: 35vw;
+    font-size: 5vw;
+  }
+}
+
+@media (max-width: 970px){
+  .nav-center{
+    display: none;
+  }
+  .stat-users{
+    font-size: 30vw;
+  }
+}
+
+
+@media (max-width: 800px){
+  .container{
+    margin: 0px 25px;
+  }
+  .logo{
+    font-size: 10vw;
+  }
+  .nav-buttons{
+    width: 45vw;
+    height: 60px;
+  }
+  .theme-button{
+    width: 30%;
+    font-size: 4.5vw;
+  }
+  .reg-button{
+    width: 60%;
+    font-size: 4.5vw;
+  }
+  .stat{
+    padding: 40px;
+  }
+  .statbtn{
+    font-size: 3.5vw;
+  }
+  .main-text{
+    font-size: 12.5vw;
+  }
+  .stat-text{
+    font-size: 5vw;
+  }
+  .stat-info p{
+    font-size: 5vw;
+  }
+}
+/* Конец адаптации */

@@ -1,0 +1,591 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: .5s ease-in-out;
+}
+
+:root {
+  --clr-background: #edeef0;
+  --clr-text: #000;
+  --clr-text-unhover: rgba(0, 0, 0, 0.8);
+  --clr-poster: #fff;
+  --clr-poster-comments: #fffc;
+  --poster-button: #f0f2f5;
+  --poster-button-hover: #ebedf0;
+  --poster-input: #f0f2f5;
+  --sizeindex: calc(100vw + 100vh);
+  /* --clr-bg: radial-gradient(at left top, rgb(185, 206, 255), rgb(211, 152, 255), rgb(185, 206, 255));
+  --clr-dark: #222;
+  --clr-soft-dark: #333;
+  --clr-grey: #444;
+  --clr-light: #fff;
+  --clr-soft-light: #eee;
+  --clr-light-grey: #aaa; */
+
+}
+
+.dark-mode{
+  --clr-background: #141414;
+  --clr-text: #fff;
+  --clr-text-unhover: rgba(255, 255, 255, 0.8);
+  --clr-poster: #222;
+  --clr-poster-comments: #212121;
+  --poster-button: #313131;
+  --poster-button-hover: #444;
+  --poster-input: #222;
+  /* --clr-bg: radial-gradient(at left top, rgb(15, 23, 42), rgb(88, 28, 135), rgb(15, 23, 42));
+  --clr-dark: #fff;
+  --clr-soft-dark: #eee;
+  --clr-grey: #444;
+  --clr-light: #222;
+  --clr-soft-light: #333;
+  --clr-light-grey: #aaa; */
+}
+
+@font-face {
+  font-family: 'Bebas Neue', sans-serif;
+  src: url('../fonts/BebasNeue-Bold.ttf') format('truetype');
+}
+
+body, html {
+  color: var(--clr-text);
+  width: 100vw;
+  font-family: 'Bebas Neue', sans-serif;
+  overflow-x: hidden;
+  background: var(--clr-background);
+  /* background: linear-gradient(90deg, #120A21 0%, #090515 50%, #120A21 100%); */
+  background-repeat: cover;
+  background-size: contain;
+}
+
+.container {
+  margin: 0px 100px;
+}
+
+p, a{
+  color: var(--clr-text);
+}
+
+/* Начало CSS постов */
+
+.main{
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.poster-img{
+  top: 0;
+  position: absolute;
+  z-index: 0;
+  height: 100%;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+}
+
+.poster-img.moto{
+  background: url(../images/MotoLentaBG.svg);
+}
+
+.poster-img.car{
+  background: url(../images/CarLentaBG.svg);
+}
+
+.poster-img.truck{
+  background: url(../images/TruckLentaBG.svg);
+}
+
+.poster{
+  position: relative;
+  margin: 75px 0px;
+  font-family: 'Scada', sans-serif;
+  width: 800px;
+  /* box-shadow: 0px 10px 20px 15px rgba(0, 0, 0, 0.10); */
+  line-height: 1.5;
+}
+
+.poster-main{
+  gap: 25px;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: var(--clr-poster);
+  /* background: #1B0F31; */
+  border-radius: 50px;
+  padding: 50px;
+  box-shadow: 0px 10px 20px 15px rgba(0, 0, 0, 0.10);
+}
+
+.poster-title{
+  text-align: center;
+  font-size: 50px;
+  font-weight: bold;
+}
+
+.poster-main-img{
+  justify-content: center;
+  border-radius: 50px;
+}
+
+.poster-text{
+  text-align: justify;
+}
+
+.poster-likes{
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  border-radius: 50px;
+  background: var(--poster-button);
+  /* background: #29174B; */
+  box-shadow: 0px 10px 20px 15px rgba(0, 0, 0, 0.10);
+  width: 80px;
+  height: 40px;
+  padding: 15px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.poster-likes:hover, .poster-likes.active{
+  background: var(--poster-button-hover);
+  /* background: #361F61; */
+}
+
+.poster-likes img{
+  user-select: none; 
+  width: 25px;
+  height: 20px;
+}
+
+.poster-likes span{
+  color: var(--clr-text);
+  user-select: none; 
+}
+
+.poster-comments-box{
+  position: relative;
+  z-index: 1;
+  margin-top: -100px;
+  gap: 25px;
+  box-shadow: 0px 10px 20px 15px rgba(0, 0, 0, 0.10);
+  display: flex;
+  flex-direction: column;
+  background: var(--clr-poster-comments);
+  /* background: #21143C; */
+  border-radius: 50px;
+  padding: 150px 50px 50px 50px;
+}
+
+.comments-title{
+  font-weight: bold;
+  font-size: larger;
+}
+
+.poster-input{
+  color: #FFF;
+  height: 50px;
+  padding: 10px;
+  width: 100%;
+  background: var(--poster-input);
+  /* background: #29174B; */
+  border-radius: 50px;
+  box-shadow: 0px 10px 20px 15px rgba(0, 0, 0, 0.10);
+  border: none;
+}
+
+.poster-inputBox img{
+  cursor: pointer;
+  height: 40px;
+  width: 50px;
+  position: absolute;
+  margin-top: 5px;
+  margin-left: -56px;
+  padding: 10px;
+  background: var(--poster-button);
+  /* background: #361F61; */
+  border-radius: 50px;
+  box-shadow: 0px 10px 20px 15px rgba(0, 0, 0, 0.10);
+}
+
+.poster-inputBox img:hover{
+  background: var(--poster-button-hover);
+  /* background: #3b226b; */
+}
+/* Конец CSS постов */
+
+
+
+/* Шапка */
+
+.header-nav{
+  padding-top: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo{
+  white-space: nowrap;
+  color: var(--clr-text);
+  font-size: 65px;
+  font-weight: 700;
+  cursor: default;
+}
+
+.nav-center{
+  display: flex;
+  width: 25%;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.nav-item {
+  color: var(--clr-text-unhover);
+  text-decoration: none;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+.nav-item.active{
+  color: var(--clr-text);
+  text-decoration: underline;
+}
+
+.nav-item:hover {
+  color: var(--clr-text);
+}
+
+
+/* Выпадающее меню */
+
+.user-menu {
+  position: absolute;
+  top: 78px;
+  right: 10px;
+  width: 62%;
+  background: var(--clr-text-unhover);
+  backdrop-filter: blur(5px);
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.user-menu ul {
+  list-style: none;
+}
+
+.user-menu a {
+  font-size: 30px;
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: var(--clr-poster);
+}
+
+.user-menu a:hover {
+  background: var(--clr-text);
+  border-radius: 15px;
+}
+
+.user-menu.hidden {
+  display: none;
+}
+
+/* Конец выпадающего меню */
+
+/* Конец шапки */
+
+#posts-container{
+  width: 800px;
+}
+
+.nav-category{
+  height: 75px;
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0px 10px 20px 15px rgba(0, 0, 0, 0.10);
+  backdrop-filter: blur(10px);
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 100px;
+}
+
+.nav-category .nav-item:hover{
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.main{
+  color: #fff;
+}
+
+.main-page{
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  padding-top: 100px;
+  align-items: center;
+}
+
+.main-text{
+  white-space: nowrap;
+  font-size: 14vw;
+  font-weight: 700;
+  letter-spacing: 5px;
+}
+
+.main-subtitle{
+  white-space: nowrap;
+  color: #FFF;
+  font-size: 4vw;
+  font-weight: 400;
+}
+
+.main-button{
+  width: 400px;
+  font-size: 50px;
+  margin-top: 50px;
+  color: #080822;
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0px 4px 10px 2px rgba(0, 0, 0, 0.25);
+  font-weight: 400;
+  letter-spacing: 2px;
+}
+
+
+
+
+/* Футер */
+
+.footer-nav{
+  padding-bottom: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: default;
+}
+
+.ft {
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+
+.ft.first{
+  padding-bottom: 5px;
+  gap: 35px;
+}
+
+.ft.first b{
+  white-space: nowrap;
+  color: var(--clr-text);
+  font-size: 65px;
+  font-weight: 700;
+  cursor: default;
+}
+
+.ft:not(.ft.first){
+  align-items:center;
+  line-height: 40px;
+}
+
+.ft p:not(.ft.first p){
+  padding-bottom: 20px;
+  font-size: 35px;
+}
+
+.ft a{
+  color: var(--clr-text-unhover);
+  text-decoration: none;
+}
+
+.ft a:hover{
+  color: var(--clr-text);
+  text-decoration: none;
+}
+
+/* Конец Футера */
+
+
+/* Начало css с кнопками */
+
+.btn-center {
+  margin: 10px;
+  background: #00000000;
+  box-shadow: none;
+  color: var(--clr-dark);
+}
+
+.btn-center.center {
+
+  margin: 10px;
+  background: #00000000;
+  box-shadow: none;
+  color: var(--clr-dark);
+}
+
+.btn-center:hover{
+  margin: 10px;
+  background: #00000000;
+  box-shadow: none;
+  color: #7573d4;
+}
+
+.nav-buttons {
+  position: relative;
+  margin: 0;
+  padding: 10px;
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 0px 35px rgba(0,0,0,0.2);
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  height: 80px;
+}
+
+.reg-button{
+  border-radius: 40px;
+  border-left-width: 40px;
+  border-right-width: 40px;
+  padding: 0px;
+  margin: 0px;
+  font-size: 35px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.8);
+  color: #080822;
+}
+
+.user-btn {
+  border-radius: 40px;
+  border-left-width: 40px;
+  border-right-width: 40px;
+  padding: 0px;
+  margin: 0px;
+  font-size: 35px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--clr-text-unhover);
+  color: var(--clr-poster);
+  /* background: rgba(255, 255, 255, 0.8);
+  color: #080822; */
+}
+
+.theme-button {
+  width: 100px;
+  background: rgba(255, 255, 255, 0.20);
+  backdrop-filter: blur(5px);
+  border-radius: 40px;
+  margin-right: 15px;
+  font-size: 35px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.theme-button:hover{
+  background: rgba(255, 255, 255, 0.4);;
+}
+
+button {
+  position: relative;
+  font-family: Bebas Neue;
+  background: var(--clr-text-unhover);
+  border-radius: 25px;
+  border-width: 15px;
+  border-color: #1c63f200;
+  box-shadow: 0px 4px 10px 2px rgba(0, 0, 0, 0.25);
+  color: #eee;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-size: 40px;
+  font-weight: 400;
+  font-style: normal;
+  flex-shrink: 0;
+}
+
+button:hover {
+  background: var(--clr-text);
+  box-shadow: 0px 4px 10px 5px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+}
+
+/* Адаптация под экран */
+
+@media (max-width: 1400px){
+  .footer-nav{
+    flex-direction: column;
+  }
+  .ft{
+    align-items: center;
+  }
+  .ft:not(.ft.first) {
+    padding-top: 50px;
+  }
+}
+
+@media (max-width: 1300px){
+  .nav-center{
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-item:not(:last-child) {
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 1100px){
+  .nav-center{
+    display: none;
+  }
+  .logo{
+    margin-right: 0;
+  }
+}
+
+
+@media (max-width: 800px){
+  .container{
+    margin: 0px 25px;
+  }
+  .logo{
+    font-size: 10vw;
+  }
+  .nav-buttons{
+    width: 45vw;
+    height: 60px;
+  }
+  .theme-button{
+    width: 30%;
+    font-size: 4.5vw;
+  }
+  .reg-button{
+    width: 60%;
+    font-size: 4.5vw;
+  }
+}
+/* Конец адаптации */
